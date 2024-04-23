@@ -22,7 +22,9 @@ import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
@@ -30,6 +32,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
@@ -146,7 +150,15 @@ fun FavoriteCollectionCard(
 fun AlignYourBodyRow(
     modifier: Modifier = Modifier
 ) {
-    // Implement composable here
+    LazyRow(
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp),
+        modifier = modifier
+    ) {
+        items(alignYourBodyData) {
+            AlignYourBodyElement(drawableRes = it.drawable, stringRes = it.text)
+        }
+    }
 }
 
 // Step: Favorite collections grid - LazyGrid
@@ -242,30 +254,30 @@ private data class DrawableStringPair(
 //    }
 //}
 
-@Preview(showBackground = true, backgroundColor = 0xFFF5F0EE)
-@Composable
-fun FavoriteCollectionCardPreview() {
-    MySootheTheme {
-        FavoriteCollectionCard(
-            drawableRes = R.drawable.fc2_nature_meditations,
-            stringRes = R.string.fc2_nature_meditations,
-            modifier = Modifier.padding(8.dp)
-        )
-    }
-}
+//@Preview(showBackground = true, backgroundColor = 0xFFF5F0EE)
+//@Composable
+//fun FavoriteCollectionCardPreview() {
+//    MySootheTheme {
+//        FavoriteCollectionCard(
+//            drawableRes = R.drawable.fc2_nature_meditations,
+//            stringRes = R.string.fc2_nature_meditations,
+//            modifier = Modifier.padding(8.dp)
+//        )
+//    }
+//}
 
 //@Preview(showBackground = true, backgroundColor = 0xFFF5F0EE)
 //@Composable
 //fun FavoriteCollectionsGridPreview() {
 //    MySootheTheme { FavoriteCollectionsGrid() }
 //}
-//
-//@Preview(showBackground = true, backgroundColor = 0xFFF5F0EE)
-//@Composable
-//fun AlignYourBodyRowPreview() {
-//    MySootheTheme { AlignYourBodyRow() }
-//}
-//
+
+@Preview(showBackground = true, backgroundColor = 0xFFF5F0EE)
+@Composable
+fun AlignYourBodyRowPreview() {
+    MySootheTheme { AlignYourBodyRow() }
+}
+
 //@Preview(showBackground = true, backgroundColor = 0xFFF5F0EE)
 //@Composable
 //fun HomeSectionPreview() {
