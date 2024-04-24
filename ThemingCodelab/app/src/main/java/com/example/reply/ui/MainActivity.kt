@@ -53,11 +53,15 @@ class MainActivity : ComponentActivity() {
 
 @Preview(
     uiMode = UI_MODE_NIGHT_YES,
-    name = "DefaultPreviewDark"
+    name = "DefaultPreviewDark",
+    showBackground = true,
+    backgroundColor = 0xFF4A148C
 )
 @Preview(
     uiMode = UI_MODE_NIGHT_NO,
-    name = "DefaultPreviewLight"
+    name = "DefaultPreviewLight",
+    showBackground = true,
+    backgroundColor = 0xFFE8F5E9
 )
 @Composable
 fun ReplyAppPreviewLight() {
