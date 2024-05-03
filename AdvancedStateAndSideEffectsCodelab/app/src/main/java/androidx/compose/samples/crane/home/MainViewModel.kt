@@ -67,8 +67,7 @@ class MainViewModel @Inject constructor(
                 destinationsRepository.destinations
                     .filter { it.city.nameToDisplay.contains(newDestination) }
             }
-            // TODO Codelab: Uncomment
-            //  _suggestedDestinations.value = newDestinations
+            _suggestedDestinations.value = newDestinations
         }
     }
 }
